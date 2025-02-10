@@ -1,3 +1,11 @@
+<div align=center>
+
+  <h1>my dotfiles</h1>
+
+</div>
+
+<br><br>
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Screenshot](#screenshot)
