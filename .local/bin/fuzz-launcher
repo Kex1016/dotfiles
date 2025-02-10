@@ -36,9 +36,9 @@ handle_utils_menu() {
 handle_power_menu() {
     choice=$(show_menu "$power_menu" 11 4)
     case "$choice" in
-        " Shutdown") sudo poweroff ;;
-        " Suspend") sudo halt ;;
-        " Reboot") sudo reboot ;;
+        " Shutdown") systemctl shutdown ;;
+        " Suspend") systemctl halt ;;
+        " Reboot") systemctl reboot ;;
         " Lock") swaylock -c 000000 ;;
         *) echo "Invalid choice: $choice" >&2; exit 1 ;;
     esac
