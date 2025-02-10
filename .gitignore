@@ -1,8 +1,6 @@
 .config/geany/session.conf
 .config/gtk-3.0/bookmarks
-.config/pcmanfm
 .local/share/applications
 !.local/share/applications/browser.desktop
 !.local/share/applications/img.desktop
 !.local/share/applications/video.desktop
-.config/pcmanfm/default/pcmanfm.conf
