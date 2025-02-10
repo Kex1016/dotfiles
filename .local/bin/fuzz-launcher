@@ -112,7 +112,7 @@ choice=$(show_menu "$main_menu" 12 6)
 case "$choice" in
     "🖥️ Terminal") launch_app foot ;;
     "🗃️ Explorer") launch_app pcmanfm ;;
-    "🌍 Browser") launch_app flatpak run io.gitlab.librewolf-community ;;
+    "🌍 Browser") launch_app zen-browser ;;
     "📦 Apps") launch_app fuzzel ;;
     "⚙️ Utils") handle_utils_menu ;;
     "🔌 Power") handle_power_menu ;;
