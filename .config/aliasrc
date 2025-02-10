@@ -1,7 +1,7 @@
 #!/bin/sh
 # Colorized commands
 alias \
-    ls="ls -shA --color=auto" \
+    ls="eza --color=auto --icons" \
     dir="dir --color=auto" \
     vdir="vdir --color=auto" \
     grep="grep --color=auto" \
@@ -15,9 +15,9 @@ alias \
 
 # LS aliases with preserved color flags
 alias \
-    ll="ls -l --color=auto" \
-    la="ls -A --color=auto" \
-    llt="ls -latrG --color=auto"
+    ll="ls -l" \
+    la="ls -A" \
+    llt="ls -la -tmodified -r -G"
 
 # Package management
 # TODO: Add aura here
