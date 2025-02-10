@@ -89,6 +89,13 @@
 
     <keyboard>
         <default />
+
+        <!-- Remove some defaults -->
+        <keybind key="A-Up"></keybind>
+        <keybind key="A-Left"></keybind>
+        <keybind key="A-Right"></keybind>
+        <keybind key="A-Down"></keybind>
+
         <!-- Workspace navigation -->
         <keybind key="W-1"><action name="GoToDesktop" to="1" /></keybind>
         <keybind key="W-2"><action name="GoToDesktop" to="2" /></keybind>
@@ -107,16 +114,18 @@
 
         <!-- Close windows -->
         <keybind key="A-F4"><action name="Close" /></keybind>
-        <keybind key="W-S-q"><action name="Close" /></keybind>
+        <keybind key="W-q"><action name="Close" /></keybind>
 
         <!-- Window management -->
         <keybind key="W-space"><action name="ToggleMaximize" /></keybind>
         <keybind key="W-c"><action name="ToggleSnapToRegion" region="center" /></keybind>
-        <keybind key="A-S-Up"><action name="MoveToEdge" direction="up" /></keybind>
-        <keybind key="A-S-Left"><action name="MoveToEdge" direction="left" /></keybind>
-        <keybind key="A-S-Right"><action name="MoveToEdge" direction="right" /></keybind>
-        <keybind key="A-S-Down"><action name="MoveToEdge" direction="down" /></keybind>
+        <keybind key="W-S-Up"><action name="ToggleMaximize" direction="up" /></keybind>
+        <keybind key="W-S-Left"><action name="MoveToOutput" direction="left" /></keybind>
+        <keybind key="W-S-Right"><action name="MoveToOutput" direction="right" /></keybind>
+        <keybind key="W-S-Down"><action name="Iconify" direction="down" /></keybind>
         <keybind key="W-Up"><action name="ToggleMaximize" /></keybind>
+        <keybind key="W-Prior"><action name="Maximize" /></keybind>
+        <keybind key="W-Next"><action name="UnMaximize" /></keybind>
         <keybind key="W-Left"><action name="ToggleSnapToEdge" direction="left" /></keybind>
         <keybind key="W-Right"><action name="ToggleSnapToEdge" direction="right" /></keybind>
         <keybind key="W-Down"><action name="ToggleSnapToEdge" direction="down" /></keybind>
