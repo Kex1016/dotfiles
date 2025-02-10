@@ -20,4 +20,5 @@ application/pdf=pdf.desktop;
 application/rss+xml=rss.desktop;
 x-scheme-handler/lbry=lbry.desktop;
 inode/directory=file.desktop;
+x-scheme-handler/discord=equibop.desktop
 
