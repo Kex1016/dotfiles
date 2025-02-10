@@ -10,36 +10,49 @@ if pidof -o %PPID -x "$0" > /dev/null; then
     exit 0
 fi
 
+test -d "$HOME/Pictures/Screenshots/$(date "+%Y-%m")" || mkdir "$HOME/Pictures/Screenshots/$(date "+%Y-%m")"
+image_path="$HOME/Pictures/Screenshots/$(date "+%Y-%m")/$(date "+%d_%H%M%S").png"
+
 # Function to capture the whole screen, show it with swayimg, then select a region to copy
 capture_region() {
     temp_screenshot=$(mktemp --suffix=.png)
     grim "${temp_screenshot}"
-    swayimg -f "${temp_screenshot}" &
+    swayimg -f "${temp_screenshot}" --class="screenshot" &
     swayimg_pid=$!
     sleep 0.1
 
     # Select a region with slurp, then copy the selected region to the clipboard
-    grim -g "$(slurp)" - | wl-copy -t image/png
+    grim -g "$(slurp -d)" "$image_path"
 
     # Clean up
     kill "$swayimg_pid" 2>/dev/null
     rm -f "${temp_screenshot}"
 }
 
+# Function to capture a display output
+capture_output() {
+    grim -g "$(slurp -o -d)" "$image_path"
+}
+
 # Function to capture the full screen and copy directly to the clipboard
-copy_full_screen() {
-    grim - | wl-copy -t image/png
+capture_full() {
+    grim "$image_path"
 }
 
 # Handle arguments
 case "$1" in
-    slurp)   # Capture region with slurp and show with swayimg
+    region)    # Capture region
         capture_region
         ;;
-    copy)    # Capture full screen and copy to clipboard
-        copy_full_screen
+    output)    # Capture monitor
+        capture_output
         ;;
-    *)       # Default: Capture full screen and copy to clipboard
-        copy_full_screen
+    full)      # Capture full screen
+        capture_full
+        ;;
+    *)         # Default: Capture full screen
+        capture_full
         ;;
 esac
+
+swappy -f "$image_path" -o "$image_path"
