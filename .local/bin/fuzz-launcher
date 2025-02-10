@@ -7,7 +7,7 @@ FUZZEL_CMD="fuzzel -d -f $FONT -a $ALIGN"
 
 # Function to display a menu and return the selected choice
 show_menu() {
-    echo "$1" | $FUZZEL_CMD -w "$2" -l "$3"
+    printf "$1" | $FUZZEL_CMD -w "$2" -l "$3"
 }
 
 # Function to launch an application if available
@@ -28,7 +28,6 @@ handle_utils_menu() {
         "💻 Streaming") exec_fuzzel_streaming ;;
         "🔢 Calc") exec_fuzzel_calc ;;
         "📑 Todo") exec_fuzzel_todo ;;
-        "⌨️ Keyboard") toggle_keyboard ;;
         *) echo "Invalid choice: $choice" >&2; exit 1 ;;
     esac
 }
@@ -58,19 +57,11 @@ exec_fuzzel_streaming() {
     esac
     media_choice=$(show_menu "$media_type_menu" 9 2)
     case "$media_choice" in
-        " Video") mpv --pause=no "$input_link" ;;
+        " Video")
+			mpv --pause=no "$input_link" || notify-send -a "Media Player" "There has been an error playing the video." ;;
         " Audio") foot -T "MPV Terminal" -e mpv --pause=no --no-video --volume=100 "$input_link" ;;
         *) echo "Invalid choice: $media_choice" >&2; exit 1 ;;
     esac
-}
-
-# Function to toggle virtual keyboard
-toggle_keyboard() {
-    if pgrep -x "wvkbd-mobintl" > /dev/null; then
-        pkill wvkbd-mobintl
-    else
-        wvkbd-mobintl &
-    fi
 }
 
 # Function for calculator using fuzzel
@@ -111,7 +102,7 @@ exec_fuzzel_run() {
 
 # Menu definitions
 main_menu="🖥️ Terminal\n🗃️ Explorer\n🌍 Browser\n📦 Apps\n⚙️ Utils\n🔌 Power"
-utils_menu="📑 Todo\n💻 Streaming\n🔢 Calc\n⚙️ Run\n⌨️ Keyboard"
+utils_menu="📑 Todo\n💻 Streaming\n🔢 Calc\n⚙️ Run"
 power_menu=" Shutdown\n Suspend\n Reboot\n Lock"
 streaming_menu=" Media\n Twitch"
 media_type_menu=" Video\n Audio"
@@ -120,7 +111,7 @@ media_type_menu=" Video\n Audio"
 choice=$(show_menu "$main_menu" 12 6)
 case "$choice" in
     "🖥️ Terminal") launch_app foot ;;
-    "🗃️ Explorer") launch_app pcmanfm-qt ;;
+    "🗃️ Explorer") launch_app pcmanfm ;;
     "🌍 Browser") launch_app flatpak run io.gitlab.librewolf-community ;;
     "📦 Apps") launch_app fuzzel ;;
     "⚙️ Utils") handle_utils_menu ;;

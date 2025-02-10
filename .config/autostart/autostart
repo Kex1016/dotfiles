@@ -1,13 +1,14 @@
 #!/bin/sh
 
 # Environment Setup
-dbus-update-activation-environment --all >/dev/null 2>&1 &
+#dbus-update-activation-environment --all >/dev/null 2>&1 &
 
 # Polkit Agent
-/usr/libexec/polkit-gnome-authentication-agent-1 >/dev/null 2>&1 &
+#/usr/libexec/polkit-gnome-authentication-agent-1 >/dev/null 2>&1 &
 
 # Output and Display Configuration
-wlr-randr --output HDMI-A-1 --mode 1920x1080@60.000000 --adaptive-sync disabled >/dev/null 2>&1 &
+#wlr-randr --output HDMI-A-1 --mode 1920x1080@60.000000 --adaptive-sync disabled >/dev/null 2>&1 &
+kanshi &
 
 # Kill Existing Processes
 for process in flavours pipewire wireplumber pipewire-pulse mpvpaper swaybg fnott wlsunset cliphist; do
@@ -45,11 +46,11 @@ download_random_wallpaper() {
 
 case "$WALLPAPER_MODE" in
     swaybg)
-        wallpaper_path="$HOME/pictures/walls/wall.jpg"
+        wallpaper_path="$HOME/Pictures/Wallpapers/current.jpg"
         swaybg --mode fill -i "$wallpaper_path" >/dev/null 2>&1 &
         ;;
     swaybg-random)
-        wallpaper_path=$(find "$HOME/pictures/walls/"*.jpg -type f | shuf -n1)
+        wallpaper_path=$(find "$HOME/Pictures/Wallpapers/"*.jpg -type f | shuf -n1)
         swaybg -i "$wallpaper_path" -m fill >/dev/null 2>&1 &
         ;;
     swaybg-random-online)
