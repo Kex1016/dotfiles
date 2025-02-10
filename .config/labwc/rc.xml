@@ -149,7 +149,9 @@
         <keybind key="XF86_MonBrightnessDown"><action name="Execute" command="brightnessctl set 5%-" /></keybind>
 
         <!-- Screenshot -->
-        <keybind key="Print"><action name="Execute" command="grim-print slurp" /></keybind>
+        <keybind key="Print"><action name="Execute" command="grim-print region" /></keybind>
+        <keybind key="S-Print"><action name="Execute" command="grim-print output" /></keybind>
+        <keybind key="C-S-Print"><action name="Execute" command="grim-print full" /></keybind>
 
         <!-- Misc -->
         <keybind key="W-x"><action name="ToggleAlwaysOnTop" /></keybind>
@@ -258,6 +260,12 @@
     <windowRules>
         <windowRule identifier="imv" serverDecoration="yes"/>
         <windowRule identifier="swayimg" serverDecoration="yes"/>
+        <windowRule identifier="screenshot" serverDecoration="no" fixedPosition="yes"/>
+        <windowRule identifier="screenshot">
+            <action name="MoveTo" x="0" y="0"/>
+            <!-- Hardcoded value for my scuffed screen setup. Change this to your own. -->
+            <action name="ResizeTo" width="4100" height="1440"/>
+        </windowRule>
         <windowRule identifier="steam" ignoreConfigureRequest="yes"/>
     </windowRules>
 
