@@ -1,7 +1,17 @@
 #!/bin/sh
+
+# CLI replacements
+alias \
+    ls="eza" \
+    cd="z" \
+    cat="bat" \
+    du="ncdu" \
+    find="fd" \
+    df="duf"
+
 # Colorized commands
 alias \
-    ls="eza --color=auto --icons" \
+    ls="ls --color=auto --icons" \
     dir="dir --color=auto" \
     vdir="vdir --color=auto" \
     grep="grep --color=auto" \
@@ -50,9 +60,6 @@ alias \
     pyenv="python -m venv" \
     cleanup-gamescope='pkill -9 -f "wine|wineserver|winedevice.exe|explorer.exe|gamescope-wl"' \
     reset="tput reset"
-
-# Zoxide
-alias cd="z"
 
 # Version control
 alias gcl='git clone --depth 1'
