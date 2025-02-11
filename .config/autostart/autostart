@@ -22,7 +22,7 @@ wireplumber >/dev/null 2>&1 &
 pipewire-pulse >/dev/null 2>&1 &
 
 # Spotify
-source "$HOME/.config/autostart/.spotifycreds"
+source "$HOME/.config/spotifyd/.spotifycreds"
 spotifyd --no-daemon &
     
 
