@@ -2,7 +2,7 @@
 
 # CLI replacements
 alias \
-    ls="eza" \
+    ls="eza --color=auto --icons" \
     cd="z" \
     cat="bat" \
     du="ncdu" \
@@ -11,7 +11,6 @@ alias \
 
 # Colorized commands
 alias \
-    ls="ls --color=auto --icons" \
     dir="dir --color=auto" \
     vdir="vdir --color=auto" \
     grep="grep --color=auto" \
