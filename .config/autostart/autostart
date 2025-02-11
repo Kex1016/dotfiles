@@ -11,7 +11,7 @@
 kanshi &
 
 # Kill Existing Processes
-for process in flavours pipewire wireplumber pipewire-pulse mpvpaper swaybg fnott wlsunset cliphist; do
+for process in flavours pipewire wireplumber pipewire-pulse mpvpaper swaybg fnott wlsunset cliphist spotifyd; do
     pkill -x "$process"
 done
 
@@ -20,6 +20,14 @@ dbus-run-session pipewire >/dev/null 2>&1 &
 sleep 1
 wireplumber >/dev/null 2>&1 &
 pipewire-pulse >/dev/null 2>&1 &
+
+# Spotify
+source "$HOME/.config/autostart/.spotifycreds"
+spotifyd \
+    --no-daemon \
+    --username="${SPOTIFY_USERNAME}" \
+    --password="${SPOTIFY_PASSWORD}" &
+    
 
 # Wallpaper Mode Selection
 WALLPAPER_MODE="swaybg-random-online" # Options: "swaybg", "swaybg-random", "mpvpaper-local", "mpvpaper-online" "swaybg-random-online"
