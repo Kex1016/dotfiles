@@ -267,6 +267,10 @@
             <action name="ResizeTo" width="4100" height="1440"/>
         </windowRule>
         <windowRule identifier="steam" ignoreConfigureRequest="yes"/>
+        <windowRule identifier="osu!.exe" fixedPosition="yes"/>
+        <windowRule identifier="osu!.exe">
+            <action name="MoveToOutput" output="DVI-2"/>
+        </windowRule>
     </windowRules>
 
 </labwc_config>
