@@ -23,10 +23,7 @@ pipewire-pulse >/dev/null 2>&1 &
 
 # Spotify
 source "$HOME/.config/autostart/.spotifycreds"
-spotifyd \
-    --no-daemon \
-    --username="${SPOTIFY_USERNAME}" \
-    --password="${SPOTIFY_PASSWORD}" &
+spotifyd --no-daemon &
     
 
 # Wallpaper Mode Selection
