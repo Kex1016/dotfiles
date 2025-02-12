@@ -4,4 +4,4 @@
 !.local/share/applications/browser.desktop
 !.local/share/applications/img.desktop
 !.local/share/applications/video.desktop
-.config/spotifyd/.spotifycreds
+.config/librespot/creds
