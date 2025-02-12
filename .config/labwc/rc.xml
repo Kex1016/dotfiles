@@ -142,7 +142,7 @@
         <keybind key="XF86_AudioLowerVolume"><action name="Execute" command="amixer sset Master 5%-" /></keybind>
         <keybind key="XF86_AudioRaiseVolume"><action name="Execute" command="amixer sset Master 5%+" /></keybind>
         <keybind key="XF86_AudioMute"><action name="Execute" command="amixer sset Master toggle" /></keybind>
-        <keybind key="XF86_AudioPause"><action name="Execute" command="playerctl play-pause" /></keybind>
+        <keybind key="XF86_AudioPlay"><action name="Execute" command="playerctl play-pause" /></keybind>
         <keybind key="XF86_AudioNext"><action name="Execute" command="playerctl next" /></keybind>
         <keybind key="XF86_AudioPrev"><action name="Execute" command="playerctl previous" /></keybind>
         <keybind key="XF86_MonBrightnessUp"><action name="Execute" command="brightnessctl set +5%" /></keybind>
