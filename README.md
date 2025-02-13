@@ -32,7 +32,6 @@ Once I make one I will put it here.
   - `pipewire` Audio server.
   - `grim` For taking screenshots.
   - `slurp` To select regions for screenshot capture.
-  - `brightnessctl` Tool to control screen brightness.
   - `wlsunset` For managing night mode settings.
   - `wl-clipboard` For clipboard management.
   - `cliphist` To access clipboard history.
@@ -49,8 +48,10 @@ I will include an install script whenever I make it, for now these are more or l
 
 - `Mod + Enter`: Open terminal (foot)
 - `Mod + D`: Launch menu selector (fuzzel)
-- `Mod + Shift + Q` or `Alt + F4`: Close focused window
+- `Mod + Q` or `Alt + F4`: Close focused window
 - `Print Screen`: Take screenshot of selected area (slurp + grim)
+- `Shift + Print Screen`: Take screenshot of selected output/monitor (slurp + grim)
+- `Ctrl + Shift + Print Screen`: Take screenshot of entire workspace
 - `Mod + Comma`: Access clipboard selector
 - `Mod + Period`: Open emoji selector
 
@@ -62,3 +63,9 @@ I've crafted special script to simplify environment variable setup. This script 
 - `fuzz-launcher`: If you want the same menu I use in my bar.
 
 Additionally, there are other handy scripts available in `.local/bin`
+
+## Thank yous
+
+[`giuji/gruvbox-qt6ct`](https://github.com/giuji/gruvbox-qt6ct) for the qt5ct/qt6ct gruvbox color schemes, obviously.
+[`marty-oehme/bemoji`](https://github.com/marty-oehme/bemoji), I love you
+
