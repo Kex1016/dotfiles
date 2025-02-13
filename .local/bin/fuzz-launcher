@@ -107,14 +107,20 @@ power_menu=" Shutdown\n Suspend\n Reboot\n Lock"
 streaming_menu=" Media\n Twitch"
 media_type_menu=" Video\n Audio"
 
-# Main Menu Logic
-choice=$(show_menu "$main_menu" 12 6)
-case "$choice" in
-    "🖥️ Terminal") launch_app foot ;;
-    "🗃️ Explorer") launch_app pcmanfm ;;
-    "🌍 Browser") launch_app zen-browser ;;
-    "📦 Apps") launch_app fuzzel ;;
-    "⚙️ Utils") handle_utils_menu ;;
-    "🔌 Power") handle_power_menu ;;
-    *) echo "Invalid choice: $choice" >&2; exit 1 ;;
+case "$1" in
+    "power") handle_power_menu ;;
+    "utils") handle_utils_menu ;;
+    "apps") launch_app fuzzel ;;
+    *)
+        choice=$(show_menu "$main_menu" 12 6)
+        case "$choice" in
+            "🖥️ Terminal") launch_app foot ;;
+            "🗃️ Explorer") launch_app pcmanfm ;;
+            "🌍 Browser") launch_app zen-browser ;;
+            "📦 Apps") launch_app fuzzel ;;
+            "⚙️ Utils") handle_utils_menu ;;
+            "🔌 Power") handle_power_menu ;;
+            *) echo "Invalid choice: $choice" >&2; exit 1 ;;
+        esac
+    ;;
 esac
