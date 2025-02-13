@@ -137,6 +137,8 @@
         <keybind key="W-comma"><action name="Execute" command="clip-manager" /></keybind>
         <keybind key="W-d"><action name="Execute" command="fuzzel" /></keybind>
         <keybind key="W-S-Return"><action name="Execute" command="fuzz-launcher" /></keybind>
+        <keybind key="W-x"><action name="Execute" command="fuzz-launcher power" /></keybind>
+        <keybind key="W-t"><action name="Execute" command="fuzz-launcher utils" /></keybind>
 
         <!-- Special keys -->
         <keybind key="XF86_AudioLowerVolume"><action name="Execute" command="amixer sset Master 5%-" /></keybind>
@@ -154,9 +156,8 @@
         <keybind key="C-S-Print"><action name="Execute" command="grim-print full" /></keybind>
 
         <!-- Misc -->
-        <keybind key="W-x"><action name="ToggleAlwaysOnTop" /></keybind>
-        <keybind key="W-S-x"><action name="ToggleDecorations" /></keybind>
-        <keybind key="W-C-Backspace"><action name="Exit" /></keybind>
+        <keybind key="W-z"><action name="ToggleAlwaysOnTop" /></keybind>
+        <keybind key="W-S-z"><action name="ToggleDecorations" /></keybind>
     </keyboard>
 
     <mouse>
