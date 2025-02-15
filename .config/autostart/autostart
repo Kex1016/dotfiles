@@ -22,22 +22,22 @@ wireplumber >/dev/null 2>&1 &
 pipewire-pulse >/dev/null 2>&1 &
 
 # Spotify
-ENABLE_LIBRESPOT="true"
-if [ $ENABLE_LIBRESPOT -e "true" ]; then
-    librespot \
-        --name="coven-librespot" \
-        --backend="alsa" \
-        --device="default" \
-        --enable-oauth \
-        --tmp="$HOME/.local/state/librespot/temp" \
-        --cache="$HOME/.local/state/librespot/cache" \
-        --system-cache="$HOME/.local/state/librespot/system" \
-        --bitrate=320 \
-        --format="S16" \
-        --enable-volume-normalisation \
-        --onevent="$HOME/Git/spotdjs/librespothandler.sh" \
-        --oauth-port 9999 &
-fi
+librespot \
+    --name="coven-librespot" \
+    --backend="alsa" \
+    --device="default" \
+    --enable-oauth \
+    --tmp="$HOME/.local/state/librespot/temp" \
+    --cache="$HOME/.local/state/librespot/cache" \
+    --system-cache="$HOME/.local/state/librespot/system" \
+    --bitrate=320 \
+    --format="S16" \
+    --enable-volume-normalisation \
+    --onevent="$HOME/Git/spotdjs/librespothandler.sh" \
+    --oauth-port 9999 >/dev/null 2>&1 &
+
+# Gamescope
+gscontroller >/dev/null 2>&1 &
 
 # Wallpaper Mode Selection
 WALLPAPER_MODE="swaybg-random-online" # Options: "swaybg", "swaybg-random", "mpvpaper-local", "mpvpaper-online" "swaybg-random-online"
