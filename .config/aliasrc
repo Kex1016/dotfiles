@@ -57,8 +57,13 @@ alias \
 alias \
     pyserv="python3 -m http.server" \
     pyenv="python -m venv" \
+    reset="tput reset" \
+    update="aura -Syu && aura -Au"
+
+# Gaming
+alias \
     cleanup-gamescope='pkill -9 -f "wine|wineserver|winedevice.exe|explorer.exe|gamescope-wl"' \
-    reset="tput reset"
+    gscontroller="LD_PRELOAD='' gamescope -h 1080 -H 1080 -f --adaptive-sync --immediate-flips --force-grab-cursor --mangoapp"
 
 # Version control
 alias gcl='git clone --depth 1'
