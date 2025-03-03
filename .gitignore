@@ -5,3 +5,5 @@
 !.local/share/applications/img.desktop
 !.local/share/applications/video.desktop
 .config/librespot/creds
+.local/bin/bunx
+.config/geany/*socket*
