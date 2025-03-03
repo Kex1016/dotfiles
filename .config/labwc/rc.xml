@@ -252,7 +252,7 @@
             <tap>yes</tap>
             <tapAndDrag>yes</tapAndDrag>
             <dragLock>yes</dragLock>
-            <middleEmulation>yes</middleEmulation>
+            <middleEmulation>no</middleEmulation>
             <disableWhileTyping>yes</disableWhileTyping>
             <scrollFactor>1.0</scrollFactor>
         </device>
