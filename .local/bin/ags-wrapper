@@ -1,2 +1,32 @@
 #! /bin/sh
-ags run "$HOME/.config/ags/$1" >/dev/null 2>&1 &
+
+TYPE=$1
+RET=$(ags run "$HOME/.config/ags/$TYPE")
+
+# switch case for type
+case "$TYPE" in
+    powermenu)
+        case "$RET" in
+            "lock")
+                hyprlock >/dev/null 2>&1 &
+                ;;
+            "suspend")
+                systemctl suspend
+                ;;
+            "reboot")
+                systemctl reboot
+                ;;
+            "power")
+                systemctl poweroff
+                ;;
+            *)
+                echo "Invalid option $RET."
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        echo "Invalid type."
+        exit 1
+        ;;
+esac
