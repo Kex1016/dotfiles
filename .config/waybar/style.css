@@ -1,140 +1,149 @@
 @import "colors.css";
 
 * {
-    font-family: sans-serif;
-    font-size: 14px;
-    min-height: 0;
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
+  font-family: sans-serif;
+  font-size: 14px;
+  min-height: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
 }
 
 #waybar {
-    background-color: inherit;
-    color: @base05;
-    border-radius: 6px;
+  background-color: @bg;
+  color: @base05;
+  border-radius: 14px 14px 0 0;
 }
 
-
 button {
-    box-shadow: none; /* Remove predefined box-shadow */
-    text-shadow: none; /* Remove predefined text-shadow */
-    background: none; /* Remove predefined background color (white) */
-    transition: none; /* Disable predefined animations */
-    border: none;
+  box-shadow: none; /* Remove predefined box-shadow */
+  text-shadow: none; /* Remove predefined text-shadow */
+  background: none; /* Remove predefined background color (white) */
+  transition: none; /* Disable predefined animations */
+  border: none;
 }
 
 button:hover {
-    box-shadow: none; /* Remove predefined box-shadow */
-    text-shadow: none; /* Remove predefined text-shadow */
-    background: none; /* Remove predefined background color (white) */
-    transition: none; /* Disable predefined animations */
-    border: none;
+  box-shadow: none; /* Remove predefined box-shadow */
+  text-shadow: none; /* Remove predefined text-shadow */
+  background: none; /* Remove predefined background color (white) */
+  transition: none; /* Disable predefined animations */
+  border: none;
 }
 
 tooltip {
-    padding: 0;
-    margin: 0;
-    background-color: @bg;
-    color: @base05;
-    border-width: 0px;
-    border-color: @base0C;
-    border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  background-color: @bg;
+  color: @base05;
+  border-width: 0px;
+  border-color: @base0C;
 }
 
 tooltip label {
-    padding: 0;
-    margin: 0;
-    background-color: inherit;
-    color: @base05;
+  padding: 0;
+  margin: 0;
+  background-color: inherit;
+  color: @base05;
 }
 
 .modules-left {
-    background-color: inherit;
-    border-radius: 0;
+  background-color: inherit;
+  border-radius: 0;
 }
 
 .modules-center {
-    background-color: inherit;
-    border-radius: 0;
+  background-color: inherit;
+  border-radius: 0;
 }
 
 .modules-right {
-    background-color: inherit;
-    border-radius: 0;
+  background-color: inherit;
+  border-radius: 0;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+  margin-right: 0;
 }
 
-#workspaces, #tags {
-    margin: 0;
+#workspaces,
+#tags {
+  margin: 0;
 }
 
-#workspaces button, #tags button {
-    border-radius: 4px;
-    padding: 0 6px 0 6px;
-    color: @base05;
-    background-color: transparent;
+#workspaces button,
+#tags button {
+  border-radius: 4px;
+  padding: 0 6px 0 6px;
+  color: @base05;
+  background-color: transparent;
 }
 
-#workspaces button:hover, #tags button:hover {
-    color: @base05;
-    background-color: @base01;
+#workspaces button:hover,
+#tags button:hover {
+  color: @base05;
+  background-color: @base01;
 }
 
-#workspaces button.focused, #tags button.focused {
-    color: @base00;
-    background-color: @base0C;
+#workspaces button.focused,
+#tags button.focused {
+  color: @base00;
+  background-color: @base0C;
 }
 
-#workspaces button.urgent, #tags button.urgent {
-    color: @base00;
-    background-color: @base0A;
+#workspaces button.urgent,
+#tags button.urgent {
+  color: @base00;
+  background-color: @base0A;
 }
 
 #window {
-    padding: 0 4px 0 4px;
-    color: @base07;
+  padding: 0 4px 0 4px;
+  color: @base07;
 }
 
 #window.empty {
-    padding: 0;
-    background-color: transparent;
+  padding: 0;
+  background-color: transparent;
 }
 
 #taskbar {
-    font-style: normal;
-    font-weight: 500;
+  background-color: inherit;
+  font-style: normal;
+  font-weight: 500;
+  padding: 0 6px 0 6px;
 }
 
 #taskbar button {
-    padding: 0 5px 0 5px;
-    border-radius: 6px;
-    color: @base07;
-    background-color: inherit;
+  border-radius: 6px;
+  color: @base07;
+  background-color: inherit;
+  padding: 0 6px 0 6px;
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 6px;
 }
 
 #taskbar button:hover {
-    color: @base07;
-    background-color: @accentDim;
+  color: @base07;
+  background-color: @accentDim;
 }
 
 #taskbar button.minimized {
-    color: @base07;
-    background-color: @base02;
+  color: @base07;
+  background-color: @base02;
 }
 
 #taskbar button.active {
-    color: @base00;
-    background-color: @base0C;
+  color: @base00;
+  background-color: @base0C;
 }
 
 #clock,
@@ -151,14 +160,14 @@ tooltip label {
 #custom-keyboard,
 #custom-wlsunset,
 #tray {
-    margin: 0 6px 0 6px;
-    padding: 0;
-    font-weight: 500;
+  margin: 0 6px 0 6px;
+  padding: 0;
+  font-weight: 500;
 }
 
 #custom-launcher {
-    padding: 0 6px 0 6px;
-    color: @base05;
+  padding: 0 6px 0 6px;
+  color: @base05;
 }
 
 #clock,
@@ -171,20 +180,29 @@ tooltip label {
 #temperature,
 #backlight,
 #battery {
-    color: @base05;
+  color: @base05;
+}
+
+#clock {
+  color: @base00;
+  background-color: @base06;
+  padding: 0 6px 0 6px;
+  border-radius: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 12px;
 }
 
 #leftWrapper {
-    background-color: @bg;
-    color: @base05;
-    border-radius: 6px;
+  background-color: inherit;
+  color: @base05;
+  margin-left: 6px;
 }
 
 #rightWrapper {
-    background-color: @bg;
-    color: @base05;
-    padding: 0 4px 0 4px;
-    border-radius: 6px;
+  background-color: inherit;
+  color: @base05;
+  padding: 0 4px 0 4px;
 }
 
 #wireplumber.muted,
@@ -192,23 +210,22 @@ tooltip label {
 #temparture.critical,
 #battery.charging,
 #battery.plugged {
-    color: @base08;
+  color: @base08;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 #tray {
-    padding: 0 4px 0 4px;
-    border-radius: 6px;
-    background-color: @bg;
+  padding: 0 6px 0 6px;
+  background-color: inherit;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
+  -gtk-icon-effect: highlight;
 }

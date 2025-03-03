@@ -1,9 +1,9 @@
 {
     "layer": "bottom",
     "position": "bottom",
-    "height": 28,
+    "height": 40,
     "spacing": 0,
-    "margin": "3 60 3 60",
+    "margin-top": 5,
     "start_hidden": false,
     "fixed-center": true,
     "mode": "dock",
@@ -144,7 +144,7 @@
         "tooltip": true,
         "tooltip-format": "{ipaddr}",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click": "foot -e net-menu",
+        "on-click": "foot -e ip a",
     },
 
     "bluetooth": {
