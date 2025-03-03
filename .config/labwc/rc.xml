@@ -142,7 +142,7 @@
         <keybind key="W-comma"><action name="Execute" command="clip-manager" /></keybind>
         <keybind key="W-d"><action name="Execute" command="fuzzel" /></keybind>
         <keybind key="W-S-Return"><action name="Execute" command="fuzz-launcher" /></keybind>
-        <keybind key="W-x"><action name="Execute" command="fuzz-launcher power" /></keybind>
+        <keybind key="W-x"><action name="Execute" command="ags-wrapper powermenu" /></keybind>
         <keybind key="W-t"><action name="Execute" command="fuzz-launcher utils" /></keybind>
 
         <!-- Special keys -->
