@@ -1,0 +1,57 @@
+@use "sass:color";
+
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #fbf1c7;
+$bg-color: rgba(40, 40, 40, 0.9);
+$accent-color: #884545;
+
+window.PowerMenu {
+  background: transparent;
+  color: $fg-color;
+  font-weight: bold;
+  font-family: Rubik, "Material Symbols Rounded";
+
+  .outer {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.shown {
+      opacity: 1;
+    }
+
+    &.hidden {
+      opacity: 0;
+    }
+
+    .content {
+      // make $bg-color more transparent
+      background: $bg-color;
+      border-radius: 10px 10px 0 0;
+      margin: 0 0 40px 0;
+
+      .time {
+        font-size: 48px;
+        padding: 8px;
+      }
+
+      .buttons {
+        padding: 8px;
+
+        button {
+          border-radius: 9999px;
+          margin: 5px;
+          min-width: 250px;
+          min-height: 50px;
+          padding: 8px;
+          font-size: 25px;
+          transition: background 0.2s, color 0.2s;
+
+          &.clicked {
+            background: $accent-color;
+            color: $fg-color;
+          }
+        }
+      }
+    }
+  }
+}
