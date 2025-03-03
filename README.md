@@ -7,10 +7,13 @@
 <br><br>
 
 ## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Screenshot](#screenshot)
 - [Software Used](#software-used)
+- [Special Keybinds](#special-keybinds)
 - [Special Scripts](#special-scripts)
+- [Thank yous](#thank-yous)
 
 ## Introduction
 
@@ -21,26 +24,26 @@ Welcome to my dotfiles repository! This repository contains my personal dotfiles
 
 ## Screenshot
 
-Once I make one I will put it here.
+![Screenshot](https://github.com/Kex1016/dotfiles/blob/main/extras/screenshot.png)
 
 ## Software Used
 
-  - `labwc` as window manager (compositor).
-  - `foot` Terminal emulator.
-  - `waybar` Status bar.
-  - `fuzzel` The application launcher menu.
-  - `pipewire` Audio server.
-  - `grim` For taking screenshots.
-  - `slurp` To select regions for screenshot capture.
-  - `wlsunset` For managing night mode settings.
-  - `wl-clipboard` For clipboard management.
-  - `cliphist` To access clipboard history.
-  - `swayimg` My image viewer.
-  - `fnott` Notification system.
-  - `mpv` Video player.
-  - `geany`, `nvim` & `nano` Text editor
-  - `noto-fonts-emoji`, `noto-fonts-ttf`, `noto-fonts-cjk`,`nerd-fonts-symbols-ttf`, `cascadia-mono` Fonts.
-  - `flavours` For setting base16 colors pretty much everywhere.
+- `labwc` as window manager (compositor).
+- `foot` Terminal emulator.
+- `waybar` Status bar.
+- `fuzzel` The application launcher menu.
+- `pipewire` Audio server.
+- `grim` For taking screenshots.
+- `slurp` To select regions for screenshot capture.
+- `wlsunset` For managing night mode settings.
+- `wl-clipboard` For clipboard management.
+- `cliphist` To access clipboard history.
+- `swayimg` My image viewer.
+- `fnott` Notification system.
+- `mpv` Video player.
+- `geany`, `nvim` & `nano` Text editor
+- `noto-fonts-emoji`, `noto-fonts-ttf`, `noto-fonts-cjk`,`nerd-fonts-symbols-ttf`, `cascadia-mono` Fonts.
+- `flavours` For setting base16 colors pretty much everywhere.
 
 I will include an install script whenever I make it, for now these are more or less enough to get it working.
 
