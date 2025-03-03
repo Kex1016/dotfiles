@@ -69,6 +69,5 @@ Additionally, there are other handy scripts available in `.local/bin`
 
 ## Thank yous
 
-[`giuji/gruvbox-qt6ct`](https://github.com/giuji/gruvbox-qt6ct) for the qt5ct/qt6ct gruvbox color schemes, obviously.
-[`marty-oehme/bemoji`](https://github.com/marty-oehme/bemoji), I love you
-
+- [`giuji/gruvbox-qt6ct`](https://github.com/giuji/gruvbox-qt6ct) for the qt5ct/qt6ct gruvbox color schemes, obviously.
+- [`marty-oehme/bemoji`](https://github.com/marty-oehme/bemoji), I love you
