@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+STEAM_PROCESS=$(ps -p $(pgrep "gamescope-wl") -o cmd | tail -n1)
+
+if [[ "$STEAM_PROCESS" == *"-steamos"* ]]; then
+    swayimg -f --scale="fill" --class="screenshot" "$HOME/Pictures/blacksquare.jpg" >/dev/null 2>&1 &
+else
+    echo "Substring not found!"
+fi
