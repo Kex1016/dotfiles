@@ -21,25 +21,25 @@
         <cornerRadius>10</cornerRadius>
         <dropShadows>yes</dropShadows>
         <font place="ActiveWindow">
-            <name>monospace</name>
+            <name>Rubik</name>
             <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
         <font place="InactiveWindow">
-            <name>monospace</name>
+            <name>Rubik</name>
             <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
         <font place="MenuItem">
-            <name>monospace</name>
+            <name>Rubik</name>
             <size>11</size>
             <slant>normal</slant>
             <weight>normal</weight>
         </font>
         <font place="OnScreenDisplay">
-            <name>monospace</name>
+            <name>Rubik</name>
             <size>12</size>
             <slant>normal</slant>
             <weight>bold</weight>
