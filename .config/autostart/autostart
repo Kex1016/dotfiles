@@ -4,7 +4,7 @@
 dbus-update-activation-environment --all >/dev/null 2>&1 &
 
 # Polkit Agent
-#/usr/libexec/polkit-gnome-authentication-agent-1 >/dev/null 2>&1 &
+/usr/libexec/polkit-gnome-authentication-agent-1 >/dev/null 2>&1 &
 
 # Output and Display Configuration
 #wlr-randr --output HDMI-A-1 --mode 1920x1080@60.000000 --adaptive-sync disabled >/dev/null 2>&1 &
@@ -20,6 +20,10 @@ dbus-run-session pipewire >/dev/null 2>&1 &
 sleep 1
 wireplumber >/dev/null 2>&1 &
 pipewire-pulse >/dev/null 2>&1 &
+
+# Applets
+blueman-applet >/dev/null 2>&1 &
+nm-applet >/dev/null 2>&1 &
 
 # Spotify
 librespot \
@@ -37,7 +41,7 @@ librespot \
     --oauth-port 9999 >/dev/null 2>&1 &
 
 # Gamescope
-LD_PRELOAD="" gamescope -h 1080 -H 1080 -f --adaptive-sync --immediate-flips --force-grab-cursor --mangoapp >/dev/null 2>&1 &
+# LD_PRELOAD="" gamescope -h 1080 -H 1080 -f --adaptive-sync --immediate-flips --force-grab-cursor --mangoapp >/dev/null 2>&1 &
 
 # Wallpaper Mode Selection
 WALLPAPER_MODE="swaybg-random-online" # Options: "swaybg", "swaybg-random", "mpvpaper-local", "mpvpaper-online" "swaybg-random-online"
