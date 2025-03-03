@@ -7,14 +7,19 @@
         <reuseOutputMode>yes</reuseOutputMode>
     </core>
 
+    <placement>
+        <policy>automatic</policy>
+    </placement>
+
     <theme>
         <name>Base16</name>
         <titlebar>
-            <layout>menu:iconify,max,close</layout>
-            <showTitle>no</showTitle>
+            <layout>icon,shade:iconify,max,close</layout>
+            <showTitle>yes</showTitle>
         </titlebar>
         <keepBorder>no</keepBorder>
-        <cornerRadius>3</cornerRadius>
+        <cornerRadius>10</cornerRadius>
+        <dropShadows>yes</dropShadows>
         <font place="ActiveWindow">
             <name>monospace</name>
             <size>11</size>
@@ -43,9 +48,9 @@
 
     <windowSwitcher show="yes" preview="yes" outlines="yes">
         <fields>
-            <field content="type" width="20%" />
-            <field content="identifier" width="40%" />
-            <field content="title" width="40%" />
+            <field content="type_short" width="8%" />
+            <field content="identifier" width="30%" />
+            <field content="title" width="62%" />
         </fields>
     </windowSwitcher>
 
