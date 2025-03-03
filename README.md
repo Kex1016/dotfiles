@@ -24,7 +24,7 @@ Welcome to my dotfiles repository! This repository contains my personal dotfiles
 
 ## Screenshot
 
-![Screenshot](https://github.com/Kex1016/dotfiles/blob/main/extras/screenshot.png)
+![Screenshot](https://github.com/Kex1016/dotfiles/blob/main/extras/screenshot2.png)
 
 ## Software Used
 
