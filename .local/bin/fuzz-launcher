@@ -1,9 +1,9 @@
 #!/bin/sh
 
 # Global Settings
-FONT="monospace:size=14"
+FONT="Rubik:size=14,Material Symbols Rounded"
 ALIGN="center"
-FUZZEL_CMD="fuzzel -d -f $FONT -a $ALIGN"
+FUZZEL_CMD="fuzzel -d -f "$FONT" -a $ALIGN"
 
 # Function to display a menu and return the selected choice
 show_menu() {
@@ -36,10 +36,10 @@ handle_utils_menu() {
 handle_power_menu() {
     choice=$(show_menu "$power_menu" 11 4)
     case "$choice" in
-        " Shutdown") systemctl poweroff ;;
-        " Suspend") systemctl halt ;;
-        " Reboot") systemctl reboot ;;
-        " Lock") swaylock -c 000000 ;;
+        " Shutdown") systemctl poweroff ;;
+        " Suspend") systemctl halt ;;
+        " Reboot") systemctl reboot ;;
+        " Lock") hyprlock ;;
         *) echo "Invalid choice: $choice" >&2; exit 1 ;;
     esac
 }
@@ -103,7 +103,7 @@ exec_fuzzel_run() {
 # Menu definitions
 main_menu="🖥️ Terminal\n🗃️ Explorer\n🌍 Browser\n📦 Apps\n⚙️ Utils\n🔌 Power"
 utils_menu="📑 Todo\n💻 Streaming\n🔢 Calc\n⚙️ Run"
-power_menu=" Shutdown\n Suspend\n Reboot\n Lock"
+power_menu=" Shutdown\n Suspend\n Reboot\n Lock"
 streaming_menu=" Media\n Twitch"
 media_type_menu=" Video\n Audio"
 
