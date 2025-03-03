@@ -86,9 +86,34 @@ else
     export FZF_CTRL_T_OPTS="--preview 'cat {}'"
 fi
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# NPM packages in homedir
+export NPM_PACKAGES="$HOME/.npm-packages"
+
+# Tell our environment about user-installed node tools
+PATH="$NPM_PACKAGES/bin:$HOME/.local/share/cargo/bin/:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+unset MANPATH  # delete if you already modified MANPATH elsewhere in your configuration
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+# Tell Node about these packages
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+
 # Don't log a command in history
 nhist() {
     HISTFILE=/dev/null
     bash -ic "$*"
     history -d $(history 1)
 }
+
+eval "$(zoxide init bash)"
+
+fastfetch -c examples/8
