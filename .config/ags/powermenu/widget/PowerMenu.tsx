@@ -12,8 +12,6 @@ function clicked(
   buttonsClicked: Variable<string[]>,
   executeAction: () => void
 ) {
-  console.log("Clicked", button);
-
   // If the button is already clicked, do the action
   if (buttonsClicked.get().includes(button)) {
     executeAction();
@@ -94,7 +92,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("power", buttonsClicked, () => {
-                    console.log("power");
+                    print("power");
                     hide();
                   });
                 }}
@@ -109,7 +107,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("reboot", buttonsClicked, () => {
-                    console.log("reboot");
+                    print("reboot");
                     hide();
                   });
                 }}
@@ -124,7 +122,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("suspend", buttonsClicked, () => {
-                    console.log("suspend");
+                    print("suspend");
                     hide();
                   });
                 }}
@@ -139,7 +137,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("lock", buttonsClicked, () => {
-                    console.log("Lock");
+                    print("lock");
                     hide();
                   });
                 }}
