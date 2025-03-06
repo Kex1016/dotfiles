@@ -15,30 +15,27 @@ for process in flavours pipewire wireplumber pipewire-pulse mpvpaper swaybg fnot
     pkill -x "$process"
 done
 
-# Start PipeWire and Services
-dbus-run-session pipewire >/dev/null 2>&1 &
-sleep 1
-wireplumber >/dev/null 2>&1 &
-pipewire-pulse >/dev/null 2>&1 &
-
 # Applets
 blueman-applet >/dev/null 2>&1 &
 nm-applet >/dev/null 2>&1 &
 
+# AGS
+ags run >/dev/null 2>&1 &
+
 # Spotify
-librespot \
-    --name="coven-librespot" \
-    --backend="alsa" \
-    --device="default" \
-    --enable-oauth \
-    --tmp="$HOME/.local/state/librespot/temp" \
-    --cache="$HOME/.local/state/librespot/cache" \
-    --system-cache="$HOME/.local/state/librespot/system" \
-    --bitrate=320 \
-    --format="S16" \
-    --enable-volume-normalisation \
-    --onevent="$HOME/Git/spotdjs/librespothandler.sh" \
-    --oauth-port 9999 >/dev/null 2>&1 &
+# librespot \
+#     --name="coven-librespot" \
+#     --backend="alsa" \
+#     --device="default" \
+#     --enable-oauth \
+#     --tmp="$HOME/.local/state/librespot/temp" \
+#     --cache="$HOME/.local/state/librespot/cache" \
+#     --system-cache="$HOME/.local/state/librespot/system" \
+#     --bitrate=320 \
+#     --format="S16" \
+#     --enable-volume-normalisation \
+#     --onevent="$HOME/Git/spotdjs/librespothandler.sh" \
+#     --oauth-port 9999 >/dev/null 2>&1 &
 
 # Gamescope
 # LD_PRELOAD="" gamescope -h 1080 -H 1080 -f --adaptive-sync --immediate-flips --force-grab-cursor --mangoapp >/dev/null 2>&1 &
