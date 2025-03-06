@@ -1,9 +1,4 @@
-@use "sass:color";
-
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$fg-color: #fbf1c7;
-$bg-color: rgba(40, 40, 40, 0.9);
-$accent-color: #884545;
+@import "variables";
 
 window.PowerMenu {
   background: transparent;

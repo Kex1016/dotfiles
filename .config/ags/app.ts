@@ -1,6 +1,7 @@
 import { App } from "astal/gtk3";
-import style from "./style.scss";
+import style from "./styles/main.scss";
 import PowerMenu from "./widget/PowerMenu";
+import Bar from "./widget/Bar";
 
 App.start({
   css: style,
@@ -18,5 +19,8 @@ App.start({
     });
 
     PowerMenu(monitor || monitors[0]);
+    monitors.map((m) => {
+      Bar(m);
+    });
   },
 });

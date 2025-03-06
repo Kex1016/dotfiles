@@ -10,7 +10,7 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
     <window
       className="Bar"
       gdkmonitor={gdkmonitor}
-      exclusivity={Astal.Exclusivity.EXCLUSIVE}
+      exclusivity={Astal.Exclusivity.NORMAL}
       anchor={TOP | LEFT | RIGHT | BOTTOM}
       application={App}
     >

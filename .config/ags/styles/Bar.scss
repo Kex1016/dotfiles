@@ -1,0 +1,9 @@
+@import "variables";
+
+window.Bar {
+  background-color: $bg-color;
+
+  .window.active {
+    background-color: red;
+  }
+}
