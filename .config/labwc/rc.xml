@@ -144,6 +144,7 @@
         <keybind key="W-S-Return"><action name="Execute" command="fuzz-launcher" /></keybind>
         <keybind key="W-x"><action name="Execute" command="ags-wrapper powermenu" /></keybind>
         <keybind key="W-t"><action name="Execute" command="fuzz-launcher utils" /></keybind>
+        <keybind key="W-l"><action name="Execute" command="hyprlock" /></keybind>
 
         <!-- Special keys -->
         <keybind key="XF86_AudioLowerVolume"><action name="Execute" command="amixer sset Master 5%-" /></keybind>
