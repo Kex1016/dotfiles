@@ -1,8 +1,9 @@
+@use "sass:color";
 @import "variables";
 
 window.PowerMenu {
   background: transparent;
-  color: $fg-color;
+  color: $gruv-fg;
   font-weight: bold;
   font-family: Rubik, "Material Symbols Rounded";
 
@@ -19,8 +20,7 @@ window.PowerMenu {
     }
 
     .content {
-      // make $bg-color more transparent
-      background: $bg-color;
+      background: color.change($gruv-bg, $alpha: 0.9);
       border-radius: 10px 10px 0 0;
       margin: 0 0 40px 0;
 
@@ -42,8 +42,8 @@ window.PowerMenu {
           transition: background 0.2s, color 0.2s;
 
           &.clicked {
-            background: $accent-color;
-            color: $fg-color;
+            background: $gruv-purple;
+            color: $gruv-fg;
           }
         }
       }
