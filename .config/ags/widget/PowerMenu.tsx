@@ -17,11 +17,8 @@ function clicked(
   // Add the button to the list of clicked buttons
   buttonsClicked.set([...buttonsClicked.get(), button]);
   // Remove the button from the list of clicked buttons after 1.5 seconds
-  const t = timeout(1500, () => {
+  timeout(1500, () => {
     buttonsClicked.set(buttonsClicked.get().filter((b) => b !== button));
-  });
-  t.connect("now", () => {
-    // pass
   });
 }
 
