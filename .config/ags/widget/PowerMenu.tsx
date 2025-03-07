@@ -1,10 +1,10 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
-import { bind, interval, timeout, Variable } from "astal";
+import { bind, exec, interval, timeout, Variable } from "astal";
 
 const time = Variable("").poll(1000, "date");
 
 function hide() {
-  App.quit();
+  App.get_window("powermenu")!.hide();
 }
 
 function clicked(
@@ -31,13 +31,29 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
   const { LEFT, RIGHT, BOTTOM } = Astal.WindowAnchor;
   const time = Variable<number>(Date.now());
   const buttonsClicked = Variable<string[]>([]);
-
-  const setTime = interval(1000, () => time.set(Date.now()));
-  setTime.connect("now", () => {
-    // pass
-  });
-
   const shown = Variable(false);
+  const shownAnimation = Variable(false);
+
+  // Set time
+  interval(1000, () => time.set(Date.now()));
+
+  // Set the shown state
+  interval(50, () => {
+    const window = App.get_window("powermenu");
+    if (!window) return;
+
+    const appShown = window.is_visible();
+    shown.set(appShown);
+    // If the app is not shown and the state is also false, it should be animated first, then hidden
+    if (!appShown && !shown.get() && shownAnimation.get()) {
+      window.show();
+      shownAnimation.set(false);
+
+      setTimeout(() => {
+        hide();
+      }, 300);
+    }
+  });
 
   return (
     <window
@@ -51,6 +67,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       onKeyPressEvent={function (_self, event: Gdk.Event) {
         if (event.get_keyval()[1] === Gdk.KEY_Escape) {
           shown.set(false);
+          shownAnimation.set(false);
           setTimeout(() => {
             hide();
           }, 300);
@@ -58,12 +75,18 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       }}
       onShow={(_self) => {
         shown.set(true);
+        shownAnimation.set(true);
+      }}
+      onRealize={(_self) => {
+        hide();
       }}
     >
       {/* START: outer centerbox */}
       <centerbox
         orientation={Gtk.Orientation.HORIZONTAL}
-        className={bind(shown).as((v) => (v ? "outer shown" : "outer hidden"))}
+        className={bind(shownAnimation).as((v) =>
+          v ? "outer shown" : "outer hidden"
+        )}
       >
         <box />
         {/* START: .content */}
@@ -92,7 +115,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("power", buttonsClicked, () => {
-                    print("power");
+                    exec("systemctl poweroff");
                     hide();
                   });
                 }}
@@ -107,7 +130,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("reboot", buttonsClicked, () => {
-                    print("reboot");
+                    exec("systemctl reboot");
                     hide();
                   });
                 }}
@@ -122,7 +145,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("suspend", buttonsClicked, () => {
-                    print("suspend");
+                    exec("systemctl suspend");
                     hide();
                   });
                 }}
@@ -137,7 +160,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
                 expand={false}
                 onClicked={() => {
                   clicked("lock", buttonsClicked, () => {
-                    print("lock");
+                    exec("hyprlock");
                     hide();
                   });
                 }}
