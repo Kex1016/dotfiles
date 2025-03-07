@@ -1,9 +1,73 @@
 @import "variables";
 
+$button-radius: 10px;
+
+@mixin button {
+  border-radius: $button-radius;
+  padding: 5px;
+  margin: 5px;
+  transition: background-color 0.2s ease;
+
+  &.active {
+    background-color: $gruv-purple;
+  }
+}
+
 window.Bar {
   background-color: $bg-color;
 
-  .window.active {
-    background-color: red;
+  .leftModule {
+    .appLauncher {
+      background-color: $gruv-fg4;
+      color: $gruv-bg0;
+      font-size: 16px;
+      @include button;
+    }
+
+    .musicPlayer {
+      background-color: $gruv-green-alt;
+      color: $gruv-bg0;
+      @include button;
+    }
+  }
+
+  .centerModule {
+    .taskbar {
+      .window {
+        background-color: $gruv-bg1;
+        color: $gruv-fg;
+        @include button;
+      }
+    }
+  }
+
+  .rightModule {
+    .tray {
+      background-color: $gruv-aqua-alt;
+      color: $gruv-bg0;
+      @include button;
+
+      .trayItem {
+        padding: 0;
+        margin: 0 5px;
+        background: transparent;
+      }
+    }
+
+    .audio {
+      background-color: $gruv-yellow-alt;
+      color: $gruv-bg0;
+      @include button;
+
+      icon {
+        margin-right: 5px;
+      }
+    }
+
+    .clock {
+      background-color: $gruv-red-alt;
+      color: $gruv-bg0;
+      @include button;
+    }
   }
 }
