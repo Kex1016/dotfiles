@@ -6,7 +6,7 @@ $button-radius: 10px;
   border-radius: $button-radius;
   padding: 5px;
   margin: 5px;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 
   &.active {
     background-color: $gruv-purple;
