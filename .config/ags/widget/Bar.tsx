@@ -2,7 +2,7 @@ import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import { bind, exec, GLib, interval, Variable } from "astal";
 import Tray from "gi://AstalTray";
 import Mpris from "gi://AstalMpris";
-import { Scrollable } from "astal/gtk3/widget";
+import CakeState from "./util/state";
 
 const time = Variable("").poll(1000, "date +%H:%M");
 
@@ -26,7 +26,7 @@ function iconReplacements(icon: string) {
 }
 
 function AppLauncherButton() {
-  const appLauncherOpened = Variable(false);
+  const appLauncherOpened = CakeState.applicationLauncherOpen;
 
   function toggleAppLauncher() {
     let appLauncherWindow;
@@ -39,10 +39,10 @@ function AppLauncherButton() {
     if (appLauncherWindow) {
       if (appLauncherWindow.is_visible()) {
         appLauncherWindow.hide();
-        appLauncherOpened.set(false);
+        CakeState.setApplicationLauncher(false);
       } else {
         appLauncherWindow.show();
-        appLauncherOpened.set(true);
+        CakeState.setApplicationLauncher(true);
       }
     }
   }
@@ -63,10 +63,29 @@ function AppLauncherButton() {
 function MusicPlayer() {
   const mpris = Mpris.get_default();
 
+  function toggleMusicPlayer() {
+    let musicPlayerWindow;
+    try {
+      musicPlayerWindow = App.get_window("musicplayer");
+    } catch (e) {
+      // pass
+    }
+
+    if (musicPlayerWindow) {
+      if (musicPlayerWindow.is_visible()) {
+        musicPlayerWindow.hide();
+        CakeState.setMusicPlayer(false);
+      } else {
+        musicPlayerWindow.show();
+        CakeState.setMusicPlayer(true);
+      }
+    }
+  }
+
   return (
     <button
       className={"musicPlayer"}
-      onClicked="astal -t music"
+      onClicked={toggleMusicPlayer}
       halign={Gtk.Align.START}
       hasTooltip
       tooltipText={"Music Player(s)"}
@@ -135,23 +154,11 @@ function Taskbar() {
 }
 
 function SysTray() {
-  const trayItems = Variable<Tray.TrayItem[]>([]);
-  const trayItemsPrevious = Variable<Tray.TrayItem[]>([]);
-
-  interval(100, () => {
-    const _t = Tray.get_default();
-    const _ti = _t.get_items();
-
-    // Only update the trayItems if the items have changed
-    if (trayItemsPrevious.get().length !== _ti.length) {
-      trayItems.set(_ti);
-      trayItemsPrevious.set(_ti);
-    }
-  });
+  const tray = Tray.get_default();
 
   return (
     <box className={"tray"}>
-      {bind(trayItems).as((items) =>
+      {bind(tray, "items").as((items) =>
         items.map((item, index) => (
           <menubutton
             key={index}
@@ -170,7 +177,6 @@ function SysTray() {
 }
 
 function Audio() {
-  const mpris = Mpris.get_default();
   const volume = Variable(0).poll(100, () => {
     const volOutput = exec("pactl get-sink-volume @DEFAULT_SINK@");
     const vol = parseInt(volOutput.match(/(\d+)%/)?.[1] || "0", 10);
@@ -185,7 +191,6 @@ function Audio() {
       hasTooltip
       tooltipText={"Volume Control"}
       onScroll={(self, event) => {
-        print(event.delta_y);
         if (event.delta_y > 0) {
           exec("pactl set-sink-volume @DEFAULT_SINK@ -5%");
         } else {
