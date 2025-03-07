@@ -104,17 +104,17 @@ esac
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark >/dev/null 2>&1 &
 
 # Waybar Configuration (choose: stacking, tiling, or none)
-WAYBAR_MODE="none"
+# WAYBAR_MODE="none"
 
-case "$WAYBAR_MODE" in
-    stacking)
-        pkill -x waybar; waybar -c "$HOME/.config/waybar/stacking-config" -s "$HOME/.config/waybar/style.css" >/dev/null 2>&1 &
-        ;;
-    tiling)
-        pkill -x waybar; waybar -c "$HOME/.config/waybar/tiling-config" -s "$HOME/.config/waybar/style.css" >/dev/null 2>&1 &
-        ;;
-    none) ;;
-esac
+# case "$WAYBAR_MODE" in
+#     stacking)
+#         pkill -x waybar; waybar -c "$HOME/.config/waybar/stacking-config" -s "$HOME/.config/waybar/style.css" >/dev/null 2>&1 &
+#         ;;
+#     tiling)
+#         pkill -x waybar; waybar -c "$HOME/.config/waybar/tiling-config" -s "$HOME/.config/waybar/style.css" >/dev/null 2>&1 &
+#         ;;
+#     none) ;;
+# esac
 
 # Cursor Theme
 gsettings set org.gnome.desktop.interface cursor-theme Breeze_Snow >/dev/null 2>&1 &
