@@ -230,17 +230,35 @@ function Clock() {
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { LEFT, RIGHT, BOTTOM } = Astal.WindowAnchor;
+  const classList = Variable<string[]>(["contents"]);
+
+  CakeState.applicationLauncherOpen.subscribe((open) => {
+    if (open) {
+      classList.set([...classList.get(), "appLauncherOpen"]);
+    } else {
+      classList.set(classList.get().filter((c) => c !== "appLauncherOpen"));
+    }
+  });
+
+  CakeState.musicPlayerOpen.subscribe((open) => {
+    if (open) {
+      classList.set([...classList.get(), "musicPlayerOpen"]);
+    } else {
+      classList.set(classList.get().filter((c) => c !== "musicPlayerOpen"));
+    }
+  });
 
   return (
     <window
-      className="Bar"
+      className={"Bar"}
+      name="bar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={LEFT | RIGHT | BOTTOM}
       application={App}
       heightRequest={40}
     >
-      <centerbox>
+      <centerbox className={bind(classList).as((c) => c.join(" "))}>
         <box className={"leftModule"} halign={Gtk.Align.START}>
           <AppLauncherButton />
           <MusicPlayer />

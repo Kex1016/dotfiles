@@ -14,60 +14,73 @@ $button-radius: 10px;
 }
 
 window.Bar {
-  background-color: $bg-color;
+  padding: 5px 0 0 0;
+  background-color: transparent;
 
-  .leftModule {
-    .appLauncher {
-      background-color: $gruv-fg4;
-      color: $gruv-bg0;
-      font-size: 16px;
-      @include button;
+  .contents {
+    margin: 5px 0 0 0;
+    background-color: $bg-color;
+    border-radius: 12px 12px 0 0;
+    transition: border-radius 0.2s ease;
+
+    &.musicPlayerOpen,
+    &.appLauncherOpen {
+      border-radius: 0 12px 0 0;
     }
 
-    .musicPlayer {
-      background-color: $gruv-green-alt;
-      color: $gruv-bg0;
-      @include button;
-    }
-  }
+    .leftModule {
+      .appLauncher {
+        background-color: $gruv-fg4;
+        color: $gruv-bg0;
+        font-size: 16px;
+        @include button;
+      }
 
-  .centerModule {
-    .taskbar {
-      .window {
-        background-color: $gruv-bg1;
-        color: $gruv-fg;
+      .musicPlayer {
+        background-color: $gruv-green-alt;
+        color: $gruv-bg0;
         @include button;
       }
     }
-  }
 
-  .rightModule {
-    .tray {
-      background-color: $gruv-aqua-alt;
-      color: $gruv-bg0;
-      @include button;
-
-      .trayItem {
-        padding: 0;
-        margin: 0 5px;
-        background: transparent;
+    .centerModule {
+      .taskbar {
+        .window {
+          background-color: $gruv-bg1;
+          color: $gruv-fg;
+          @include button;
+        }
       }
     }
 
-    .audio {
-      background-color: $gruv-yellow-alt;
-      color: $gruv-bg0;
-      @include button;
+    .rightModule {
+      .tray {
+        background-color: $gruv-aqua-alt;
+        color: $gruv-bg0;
+        @include button;
 
-      icon {
-        margin-right: 5px;
+        .trayItem {
+          padding: 0;
+          margin: 0 5px;
+          background: transparent;
+        }
       }
-    }
 
-    .clock {
-      background-color: $gruv-red-alt;
-      color: $gruv-bg0;
-      @include button;
+      .audio {
+        background-color: $gruv-yellow-alt;
+        color: $gruv-bg0;
+        @include button;
+
+        icon {
+          margin-right: 5px;
+        }
+      }
+
+      .clock {
+        background-color: $gruv-red-alt;
+        color: $gruv-bg0;
+        @include button;
+      }
     }
   }
 }
