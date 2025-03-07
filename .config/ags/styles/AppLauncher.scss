@@ -1,0 +1,43 @@
+@use "sass:color";
+
+@import "variables";
+
+window.AppLauncher {
+  .AppLauncherContents {
+    background: color.change($gruv-bg, $alpha: 0.9);
+    margin: 0 0 44px 0;
+    padding: 10px;
+    border-radius: 0 12px 0 0;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    &.hidden {
+      opacity: 0;
+    }
+
+    .search {
+      margin: 0 0 10px 0;
+    }
+
+    .list {
+      .AppButton {
+        color: $gruv-fg;
+
+        icon {
+          font-size: 25px;
+          margin-right: 10px;
+        }
+
+        .name {
+          font-size: 16px;
+          font-weight: bold;
+        }
+
+        .description {
+          font-size: 14px;
+          color: $gruv-fg2;
+        }
+      }
+    }
+  }
+}
