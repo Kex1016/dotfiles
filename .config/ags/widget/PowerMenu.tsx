@@ -2,8 +2,6 @@ import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import { bind, exec, interval, timeout, Variable } from "astal";
 import CakeState from "./util/state";
 
-const time = Variable("").poll(1000, "date");
-
 function clicked(
   button: string,
   buttonsClicked: Variable<string[]>,
