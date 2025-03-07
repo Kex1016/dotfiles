@@ -1,3 +1,38 @@
-$fg-color: #fbf1c7;
-$bg-color: rgba(40, 40, 40, 0.9);
-$accent-color: #884545;
+@use "sass:color";
+
+// Gruvbox Dark
+$gruv-bg: #282828;
+$gruv-fg: #ebdbb2;
+$gruv-red: #cc241d;
+$gruv-green: #98971a;
+$gruv-yellow: #d79921;
+$gruv-blue: #458588;
+$gruv-purple: #b16286;
+$gruv-aqua: #689d6a;
+$gruv-orange: #d65d0e;
+$gruv-gray: #a89984;
+$gruv-gray-alt: #928374;
+$gruv-red-alt: #fb4934;
+$gruv-green-alt: #b8bb26;
+$gruv-yellow-alt: #fabd2f;
+$gruv-blue-alt: #83a598;
+$gruv-purple-alt: #d3869b;
+$gruv-aqua-alt: #8ec07c;
+$gruv-orange-alt: #fe8019;
+
+// Variants
+$gruv-bg0-hard: #1d2021;
+$gruv-bg0: $gruv-bg;
+$gruv-bg0-soft: #32302f;
+$gruv-bg1: #3c3836;
+$gruv-bg2: #504945;
+$gruv-bg3: #665c54;
+$gruv-bg4: #7c6f64;
+$gruv-fg1: $gruv-fg;
+$gruv-fg2: #d5c4a1;
+$gruv-fg3: #bdae93;
+$gruv-fg4: #a89984;
+
+$fg-color: #ebdbb2;
+$bg-color: color.change($gruv-bg, $alpha: 0.9);
+$accent-color: $gruv-purple;
