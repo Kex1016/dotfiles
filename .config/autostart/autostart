@@ -104,7 +104,7 @@ esac
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark >/dev/null 2>&1 &
 
 # Waybar Configuration (choose: stacking, tiling, or none)
-WAYBAR_MODE="stacking"
+WAYBAR_MODE="none"
 
 case "$WAYBAR_MODE" in
     stacking)
