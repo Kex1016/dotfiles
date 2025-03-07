@@ -3,6 +3,7 @@ import style from "./styles/main.scss";
 import PowerMenu from "./widget/PowerMenu";
 import Bar from "./widget/Bar";
 import AppLauncher from "./widget/AppLauncher";
+import CakeState from "./widget/util/state";
 
 function toggleWindow(window: Gtk.Window) {
   if (window.is_visible()) {
@@ -17,24 +18,15 @@ App.start({
   requestHandler(request: string, res: (response: any) => void) {
     switch (request) {
       case "powermenu":
-        const powermenu = App.get_window("powermenu");
-        if (powermenu) {
-          toggleWindow(powermenu);
-        }
+        CakeState.togglePowerMenu();
         res("powermenu toggled");
         break;
       case "musicplayer":
-        const musicplayer = App.get_window("musicplayer");
-        if (musicplayer) {
-          toggleWindow(musicplayer);
-        }
+        CakeState.toggleMusicPlayer();
         res("musicplayer toggled");
         break;
       case "applauncher":
-        const applauncher = App.get_window("applauncher");
-        if (applauncher) {
-          toggleWindow(applauncher);
-        }
+        CakeState.toggleApplicationLauncher();
         res("applauncher toggled");
         break;
       default:
