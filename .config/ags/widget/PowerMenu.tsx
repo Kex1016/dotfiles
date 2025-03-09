@@ -73,18 +73,21 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
         <box />
         {/* START: .content */}
         <centerbox orientation={Gtk.Orientation.VERTICAL} className="content">
-          <label
-            className="time"
-            label={bind(time).as((v) => {
-              const date = new Date(v);
-              return date.toLocaleTimeString("en-US", {
-                hour: "numeric",
-                minute: "numeric",
-              });
-            })}
-          />
-          <centerbox orientation={Gtk.Orientation.HORIZONTAL}>
-            <box />
+          <centerbox
+            orientation={Gtk.Orientation.HORIZONTAL}
+            className={"container"}
+            vertical
+          >
+            <label
+              className="time"
+              label={bind(time).as((v) => {
+                const date = new Date(v);
+                return date.toLocaleTimeString("en-US", {
+                  hour: "numeric",
+                  minute: "numeric",
+                });
+              })}
+            />
 
             <box className="buttons" orientation={Gtk.Orientation.VERTICAL}>
               {/* power */}
@@ -147,9 +150,13 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
 
             <box />
           </centerbox>
+          <eventbox
+            onClick={() => CakeState.setPowerMenu(false)}
+            heightRequest={44}
+            halign={Gtk.Align.FILL}
+          />
         </centerbox>
         {/* END: .content */}
-        <box />
       </centerbox>
       {/* END: outer centerbox */}
     </window>

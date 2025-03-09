@@ -140,6 +140,10 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
               <label label={"No results found"} />
             </box>
           </box>
+          <eventbox
+            onClick={() => CakeState.setPowerMenu(false)}
+            heightRequest={44}
+          />
         </box>
       </box>
     </window>
