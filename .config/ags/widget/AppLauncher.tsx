@@ -11,6 +11,7 @@ function AppButton({ app }: { app: Apps.Application }) {
       className={"AppButton"}
       onClicked={() => {
         CakeState.applicationLauncherOpen.set(false);
+        CakeState.appOpened(app.executable);
         app.launch();
       }}
     >
@@ -36,6 +37,7 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
   const { BOTTOM, LEFT } = Astal.WindowAnchor;
   const apps = new Apps.Apps();
   const width = Variable<number>(1000);
+  const searchFocused = Variable<boolean>(false);
 
   function getThis() {
     return App.get_window("applauncher");
@@ -56,6 +58,7 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
   const list = search((s) => apps.fuzzy_query(s).slice(0, MAX_ITEMS));
   const onEnter = () => {
     apps.fuzzy_query(search.get())?.[0].launch();
+    CakeState.appOpened(apps.fuzzy_query(search.get())?.[0].executable);
     CakeState.applicationLauncherOpen.set(false);
   };
 
@@ -79,8 +82,28 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
         width.set(self.get_current_monitor().workarea.width);
       }}
       onKeyPressEvent={(self, event: Gdk.Event) => {
-        if (event.get_keyval()[1] === Gdk.KEY_Escape) {
-          CakeState.applicationLauncherOpen.set(false);
+        switch (event.get_keyval()[1]) {
+          case Gdk.KEY_Escape:
+            CakeState.applicationLauncherOpen.set(false);
+            break;
+          case Gdk.KEY_Right:
+            searchFocused.set(false);
+            break;
+          case Gdk.KEY_Left:
+            searchFocused.set(false);
+            break;
+          case Gdk.KEY_Up:
+            searchFocused.set(false);
+            break;
+          case Gdk.KEY_Down:
+            searchFocused.set(false);
+            break;
+          case Gdk.KEY_Return:
+            searchFocused.set(false);
+            break;
+          default:
+            searchFocused.set(true);
+            break;
         }
       }}
     >
@@ -99,9 +122,14 @@ export default function AppLauncher(gdkmonitor: Gdk.Monitor) {
               text={search()}
               onActivate={onEnter}
               onChanged={(self) => search.set(self.text)}
+              hasFocus={searchFocused()}
             />
             <box className={"list"} spacing={6} vertical>
-              {list.as((l) => l.map((app) => <AppButton app={app} />))}
+              {list.as((l) =>
+                CakeState.sortFromAppList(l).map((app) => (
+                  <AppButton app={app} />
+                ))
+              )}
             </box>
             <box
               halign={Gtk.Align.CENTER}
