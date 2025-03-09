@@ -23,7 +23,19 @@ cleanup-history() {
     history -r
 }
 
-export PROMPT_COMMAND='history -a; cleanup-history; history -n'
+# Set a unique title for each terminal
+# get all foot processes
+terminals=$(ps -eo pid,cmd | grep -E 'foot|alacritty' | grep -v grep | awk '{print $1}')
+# set current id to the number of terminals
+current_id=$(echo "$terminals" | wc -l)
+# set the title of the terminal to the current id
+# case "$TERM" in
+#     xterm*|rxvt*|foot*|alacritty*)
+#         title_command='echo -ne "\033]0;[$current_id] ${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+#         ;;
+# esac
+
+export PROMPT_COMMAND="history -a; cleanup-history; history -n"
 
 # Enable programmable completion
 if ! shopt -oq posix; then
@@ -45,7 +57,7 @@ fi
 
 case "$TERM" in
     xterm*|rxvt*|foot*|alacritty*)
-        PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+        PS1="\[\e]0;[$current_id] \u@\h: \w\a\]$PS1"
         ;;
 esac
 
