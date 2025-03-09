@@ -21,7 +21,7 @@ export TERM="xterm-256color"
 export CLICOLOR=1
 export EDITOR="nvim"
 export PAGER="less"
-export FILE="nnn"
+export FILE="yazi"
 
 # XDG Base Directory Specification
 export XDG_CONFIG_HOME="$HOME/.config"
