@@ -60,7 +60,9 @@
     </resistance>
 
     <!-- Show a simple resize and move indicator -->
-    <resize popupShow="Never" />
+    <resize popupShow="Always">
+        <drawContents>no</drawContents>
+    </resize>
 
     <focus>
         <followMouse>no</followMouse>
