@@ -1,0 +1,62 @@
+@import "./variables.scss";
+
+window.MusicPlayer {
+  .content {
+    background: color.change($gruv-bg, $alpha: 0.9);
+    padding: 10px;
+    border-radius: 0 12px 0 0;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    &.hidden {
+      opacity: 0;
+    }
+
+    .noPlayers {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .active {
+      margin-bottom: 10px;
+
+      .albumart {
+        button {
+          background-position: center;
+          background-size: cover;
+          margin-bottom: 10px;
+        }
+      }
+
+      .details {
+        margin-bottom: 10px;
+        .title {
+          font-size: 15px;
+          font-weight: bold;
+        }
+        .album {
+          font-size: 12px;
+        }
+      }
+
+      .controls {
+        button {
+          margin: 0 3px;
+          padding: 5px;
+        }
+      }
+    }
+
+    .players {
+      button {
+        margin: 0 2px;
+        padding: 3px;
+
+        &.active {
+          background: color.change($gruv-purple, $alpha: 0.5);
+        }
+      }
+    }
+  }
+}

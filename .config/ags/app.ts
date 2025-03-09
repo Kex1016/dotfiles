@@ -4,6 +4,7 @@ import PowerMenu from "./widget/PowerMenu";
 import Bar from "./widget/Bar";
 import AppLauncher from "./widget/AppLauncher";
 import CakeState from "./widget/util/state";
+import MusicPlayer from "./widget/MusicPlayer";
 
 function toggleWindow(window: Gtk.Window) {
   if (window.is_visible()) {
@@ -48,6 +49,7 @@ App.start({
 
     PowerMenu(monitor || monitors[0]);
     AppLauncher(monitor || monitors[0]);
+    MusicPlayer(monitor || monitors[0]);
     monitors.map((m) => {
       Bar(m);
     });
