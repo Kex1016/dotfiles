@@ -138,7 +138,9 @@ function Taskbar() {
               key={index}
               onClicked={() => {
                 exec(
-                  `wlrctl window focus app_id:${window.id} title:"${window.title}"`
+                  `wlrctl window focus app_id:${
+                    window.id
+                  } title:"${window.title.replace(/"/g, '\\"')}"`
                 );
               }}
               className={window.active ? "window active" : "window"}
