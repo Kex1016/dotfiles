@@ -136,7 +136,9 @@ function Taskbar() {
             <button
               key={index}
               onClicked={() => {
-                exec(`wlrctl window focus ${window.id}`);
+                exec(
+                  `wlrctl window focus app_id:${window.id} title:"${window.title}"`
+                );
               }}
               className={window.active ? "window active" : "window"}
               hasTooltip
