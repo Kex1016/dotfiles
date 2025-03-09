@@ -20,6 +20,7 @@ function iconReplacements(icon: string) {
   const replacements = {
     code: "visual-studio-code",
     zen: "zen-browser",
+    Navigator: "zen-browser",
   };
 
   return replacements[icon as keyof typeof replacements] || icon;
