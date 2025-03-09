@@ -3,8 +3,10 @@ import Apps from "gi://AstalApps";
 
 class CakeState {
   public applicationLauncherOpen: Variable<boolean> = Variable(false);
-  public musicPlayerOpen: Variable<boolean> = Variable(false);
+
   public powerMenuOpen: Variable<boolean> = Variable(false);
+
+  public musicPlayerOpen: Variable<boolean> = Variable(false);
 
   public appFrequency: Variable<{ [key: string]: number }> = Variable({});
 
